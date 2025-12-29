@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* =========================================
+        VARIÁVEIS E RESET (Configurações Gerais)
+        ========================================= */
+        :root {
+            /* Paleta de Cores baseada na marca */
+            --cor-primaria: #a71d2a; /* Vermelho vinho da logo */
+            --cor-primaria-escura: #801520;
+            --cor-texto: #333333; /* Cinza escuro para leitura */
+            --cor-titulo: #1a1a1a; /* Preto suave para títulos */
+            --cor-fundo-claro: #ffffff;
+            --cor-fundo-cinza: #f9f9f9;
+            --cor-rodape: #222222;
+            
+            /* Tipografia Moderna (Exemplo usando fontes do sistema para velocidade) */
+            --fonte-principal: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Reset básico para garantir consistência */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Rolagem suave ao clicar nos links */
+        }
+
+        body {
+            font-family: var(--fonte-principal);
+            line-height: 1.6;
+            color: var(--cor-texto);
+            background-color: var(--cor-fundo-claro);
+        }
+
+        /* Container padrão para centralizar o conteúdo */
+        .container {
+            width: 90%;
+            max-width: 1200px; /* Largura máxima no desktop */
+            margin: 0 auto;
+        }
+
+        /* Estilos de Imagem Responsiva */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Links e Botões */
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* Classe padrão para botões */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primario {
+            background-color: var(--cor-primaria);
+            color: white;
+            border: 2px solid var(--cor-primaria);
+        }
+
+        .btn-primario:hover {
+            background-color: var(--cor-primaria-escura);
+            border-color: var(--cor-primaria-escura);
+        }
+
+        .btn-secundario {
+            background-color: transparent;
+            color: var(--cor-primaria);
+            border: 2px solid var(--cor-primaria);
+        }
+
+        .btn-secundario:hover {
+            background-color: var(--cor-primaria);
+            color: white;
+        }
+
+        /* Títulos de Seção */
+        .titulo-secao {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .titulo-secao h2 {
+            font-size: 2rem;
+            color: var(--cor-titulo);
+            margin-bottom: 10px;
+        }
+
+        .secao-padrao {
+            padding: 60px 0; /* Espaçamento interno das seções */
+        }
+
+        .fundo-cinza {
+            background-color: var(--cor-fundo-cinza);
+        }
+
+        /* =========================================
+        ESTILOS MOBILE-FIRST (Celular)
+        ========================================= */
+
+        /* CABEÇALHO */
+        #cabecalho-principal {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky; /* Fixa o menu no topo ao rolar */
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+
+        .cabecalho-flex {
+            display: flex;
+            flex-direction: column; /* Em mobile, logo em cima do menu */
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            max-height: 60px;
+        }
+
+        /* Menu simplificado para mobile CSS puro */
+        .menu-lista {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px 0;
+        }
+
+        .menu-lista a {
+            font-weight: 500;
+            color: var(--cor-titulo);
+            font-size: 0.9rem;
+        }
+
+        .menu-lista a:hover {
+            color: var(--cor-primaria);
+        }
+
+        .btn-menu-item {
+            display: none; /* Esconde o botão "Cotar" no menu mobile padrão */
+        }
+
+        /* HERO SECTION */
+        .secao-hero {
+            padding: 40px 0;
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Degradê suave */
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-direction: column-reverse; /* Texto abaixo da imagem no mobile */
+            gap: 30px;
+            text-align: center;
+        }
+
+        .hero-texto h1 {
+            font-size: 2.2rem;
+            color: var(--cor-primaria);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-texto p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .hero-imagem img {
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* SEÇÃO DE SERVIÇOS (Cards Modernos) */
+        .grade-servicos {
+            display: grid;
+            grid-template-columns: 1fr; /* 1 coluna no mobile */
+            gap: 20px;
+        }
+
+        .cartao-servico {
+            background-color: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 3px solid transparent; /* Prepara para o hover */
+        }
+
+        /* Efeito hover no Desktop (não atrapalha o mobile) */
+        @media (hover: hover) {
+            .cartao-servico:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                border-bottom-color: var(--cor-primaria);
+            }
+        }
+
+        .icone-servico {
+            font-size: 2.5rem;
+            color: var(--cor-primaria);
+            margin-bottom: 20px;
+        }
+
+        .cartao-servico h3 {
+            margin-bottom: 15px;
+            color: var(--cor-titulo);
+        }
+
+        .link-cotacao {
+            color: var(--cor-primaria);
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* SEÇÃO SOBRE NÓS */
+        .sobre-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .sobre-imagem img {
+            border-radius: 12px;
+        }
+
+        .sobre-texto h2 {
+            font-size: 2rem;
+            color: var(--cor-titulo);
+            margin-bottom: 20px;
+        }
+
+        .destaque-texto {
+            font-weight: bold;
+            color: var(--cor-primaria);
+            font-size: 1.2rem;
+        }
+
+        .sobre-texto p {
+            margin-bottom: 20px;
+        }
+
+        /* Lista de vantagens com ícones */
+        .lista-vantagens {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .lista-vantagens li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .lista-vantagens li i {
+            color: var(--cor-primaria);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* RODAPÉ */
+        #contato {
+            background-color: var(--cor-rodape);
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .rodape-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .rodape-coluna h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+        }
+
+        /* Pequeno detalhe vermelho abaixo do título do rodapé */
+        .rodape-coluna h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 3px;
+            background-color: var(--cor-primaria);
+        }
+
+        .lista-contato {
+            list-style: none;
+        }
+
+        .lista-contato li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .lista-contato li i {
+            color: var(--cor-primaria);
+            margin-top: 4px;
+        }
+
+        .redes-sociais {
+            margin-top: 25px;
+        }
+
+        .redes-sociais a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .mapa-container iframe {
+            border-radius: 12px;
+            filter: grayscale(20%); /* Mapa levemente desaturado para combinar */
+        }
+
+        .rodape-copy {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* =================================================================
+        MEDIA QUERIES (Tablet e Desktop) - Onde a mágica acontece
+        ================================================================= */
+
+        /* Tablet (a partir de 768px) */
+        @media (min-width: 768px) {
+            .hero-texto h1 { font-size: 2.8rem; }
+            
+            .hero-btns {
+                flex-direction: row; /* Botões lado a lado */
+                justify-content: center;
+            }
+
+            .grade-servicos {
+                grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+            }
+        }
+
+        /* Desktop (a partir de 1024px) */
+        @media (min-width: 1024px) {
+            
+            /* Cabeçalho Desktop */
+            .cabecalho-flex {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 10px 0;
+            }
+
+            .menu-lista {
+                gap: 30px;
+            }
+
+            .btn-menu-item {
+                display: block; /* Mostra o botão no menu desktop */
+            }
+
+            .btn-pequeno {
+                padding: 8px 20px;
+            }
+
+            /* Hero Desktop */
+            .secao-hero {
+                padding: 80px 0;
+            }
+
+            .hero-grid {
+                flex-direction: row; /* Texto esquerda, Imagem direita */
+                align-items: center;
+                text-align: left;
+                gap: 60px;
+            }
+
+            .hero-btns {
+                justify-content: flex-start;
+            }
+
+            /* Serviços Desktop */
+            .grade-servicos {
+                grid-template-columns: repeat(4, 1fr); /* 4 colunas no desktop */
+            }
+
+            /* Sobre Nós Desktop */
+            .sobre-grid {
+                flex-direction: row;
+                align-items: center;
+                gap: 60px;
+            }
+
+            .sobre-imagem, .sobre-texto {
+                flex: 1; /* Divide o espaço igualmente */
+            }
+
+            /* Rodapé Desktop */
+            .rodape-grid {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .rodape-coluna {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="cabecalho-principal">
+        <div class="container cabecalho-flex">
+            <div class="logo-container">
+                <img src="https://placehold.co/150x80/eee/a71d2a?text=LOGO+RR" alt="Rose Rabelo Seguros Logo" class="logo-img">
+            </div>
+
+            <nav id="navegacao-principal">
+                <ul class="menu-lista">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#servicos">Seguros</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li class="btn-menu-item"><a href="#contato" class="btn btn-primario btn-pequeno">Cotar Agora</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="secao-hero">
+            <div class="container hero-grid">
+                <div class="hero-texto">
+                    <h1>Sua vida muito mais tranquila e segura!</h1>
+                    <p>Há mais de 19 anos oferecendo proteção personalizada e descomplicada para tudo o que é importante para você.</p>
+                    <div class="hero-btns">
+                        <a href="#contato" class="btn btn-primario">Faça sua Cotação</a>
+                        <a href="#servicos" class="btn btn-secundario">Conheça os Planos</a>
+                    </div>
+                </div>
+                <div class="hero-imagem">
+                    <img src="https://placehold.co/600x400/eee/ccc?text=Foto+Familia+Segura" alt="Família feliz e segura">
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="secao-padrao fundo-cinza">
+            <div class="container">
+                <div class="titulo-secao">
+                    <h2>Nossos Seguros</h2>
+                    <p>Encontre a proteção ideal para cada momento da sua vida e dos seus negócios.</p>
+                </div>
+
+                <div class="grade-servicos">
+                    <div class="cartao-servico">
+                        <i class="fa-solid fa-car-side icone-servico"></i>
+                        <h3>Automóveis</h3>
+                        <a href="#contato" class="link-cotacao">Cotar <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="cartao-servico">
+                        <i class="fa-solid fa-house-chimney icone-servico"></i>
+                        <h3>Residenciais</h3>
+                        <a href="#contato" class="link-cotacao">Cotar <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="cartao-servico">
+                        <i class="fa-solid fa-hands-holding-child icone-servico"></i>
+                        <h3>Vida e Família</h3>
+                        <a href="#contato" class="link-cotacao">Cotar <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="cartao-servico">
+                        <i class="fa-solid fa-truck-front icone-servico"></i>
+                        <h3>Caminhões e Cargas</h3>
+                        <a href="#contato" class="link-cotacao">Cotar <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="cartao-servico">
+                        <i class="fa-solid fa-briefcase icone-servico"></i>
+                        <h3>Empresariais</h3>
+                        <a href="#contato" class="link-cotacao">Cotar <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="cartao-servico">
+                        <i class="fa-solid fa-motorcycle icone-servico"></i>
+                        <h3>Motocicletas</h3>
+                        <a href="#contato" class="link-cotacao">Cotar <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="secao-padrao">
+            <div class="container sobre-grid">
+                <div class="sobre-imagem">
+                    <img src="https://placehold.co/600x500/eee/ccc?text=Foto+da+Equipe+RR" alt="Equipe Rose Rabelo Seguros">
+                </div>
+                <div class="sobre-texto">
+                    <h2>Protegendo o que é importante para você</h2>
+                    <p class="destaque-texto">Rose Rabelo Seguros: Mais de 19 anos de experiência no mercado.</p>
+                    <p>Somos uma corretora onde você encontra proteção personalizada. Disponibilizamos as melhores soluções financeiras, ofertadas pelas maiores seguradoras do Brasil e do mundo.</p>
+                    <p>Oferecemos um suporte humanizado em todos os processos, cuidando da burocracia e resolvendo problemas com agilidade.</p>
+                    <ul class="lista-vantagens">
+                        <li><i class="fa-solid fa-check"></i> Atendimento Especializado</li>
+                        <li><i class="fa-solid fa-check"></i> Assistência 24hrs</li>
+                        <li><i class="fa-solid fa-check"></i> Acompanhamento de Sinistros</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato">
+        <div class="container rodape-grid">
+            <div class="rodape-coluna">
+                <h3>Fale Conosco</h3>
+                <ul class="lista-contato">
+                    <li><i class="fa-brands fa-whatsapp"></i> (37) 3333-2222 / 3333-2350</li>
+                    <li><i class="fa-regular fa-envelope"></i> comercial@roseseguros.com.br</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Av. Américo Paolinelli, 80, Centro, Carmópolis MG</li>
+                    <li><i class="fa-regular fa-clock"></i> Seg a Sex: 08h30 às 18h</li>
+                </ul>
+                <div class="redes-sociais">
+                    <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i> @roserabeloseguros</a>
+                </div>
+            </div>
+
+            <div class="rodape-coluna mapa-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3739.613217844676!2d-44.84556092397726!3d-20.40109568109839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa0b56c5844337d%3A0x8c5318474d882361!2sAv.%20Am%C3%A9rico%20Paolinelli%2C%2080%20-%20Centro%2C%20Carm%C3%B3polis%20de%20Minas%20-%20MG%2C%2035534-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="rodape-copy">
+            <p>&copy; 2024 Rose Rabelo Seguros. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

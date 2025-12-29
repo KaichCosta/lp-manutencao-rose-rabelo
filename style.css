@@ -1,0 +1,225 @@
+:root {
+
+    --cor-primaria: #fc0000; /* Vermelho da logo */
+    --cor-primaria-escura: #e20000;
+    --cor-texto: #222; /* Cinza escuro para leitura */
+    --cor-h2: #111;
+    --cor-fundo-claro: #fafafa;
+    --cor-fundo-cinza: #eaeaea;
+    --cor-rodape: #222222;
+
+}
+
+/* Reset básico para garantir consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+;
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave ao clicar nos links */
+}
+
+body {
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo-claro);
+}
+
+/* Container padrão para centralizar o conteúdo */
+.container {
+    width: 90%;
+    max-width: 1200px; /* Largura máxima no desktop */
+    margin: 0 auto;
+}
+
+/* Estilos de Imagem Responsiva */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+#hero-logo {
+    width: 300px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* CABEÇALHO */
+#cabecalho-principal {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky; /* Fixa o menu no topo ao rolar */
+    top: 0;
+    z-index: 100;
+    padding: 15px 0;
+}
+
+.cabecalho-flex {
+    display: flex;
+    flex-direction: column; /* Em mobile, logo em cima do menu */
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    max-height: 90px;
+}
+
+/* Menu simplificado para mobile CSS puro */
+.menu-lista {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.menu-lista a {
+    font-weight: 500;
+    color: var(--cor-titulo);
+    font-size: 1rem;
+}
+
+.menu-lista a:hover {
+    color: var(--cor-primaria);
+}
+
+.btn-menu-item {
+    display: none; /* Esconde o botão "Cotar" no menu mobile padrão */
+}
+
+/* =-=-=-=-=-=
+HERO SECTION
+=-=-=-=-=-= */
+.secao-hero {
+    padding: 40px 0;
+    background: var(--cor-fundo-claro)
+}
+
+.hero-grid {
+    display: flex;
+    flex-direction: column-reverse; /* Texto abaixo da imagem no mobile */
+    gap: 30px;
+    text-align: center;
+}
+
+.hero-texto h1 {
+    font-size: 2.2rem;
+    color: var(--cor-primaria);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-texto p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.hero-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hero-imagem img {
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/*versão Gemini / inicio vercel*/
+
+/* =-=-=-=-=
+SEÇÃO SOBRE
+ =-=-=-=-= */
+.secao-sobre {
+    padding: 60px 0;
+    background-color: var(--cor-fundo-cinza);
+}
+
+.titulo-secao-sobre {
+    font-size: 1.6rem;
+    color: var(--cor-h2);
+    margin-bottom: 2.2rem;
+}
+
+.sobre-texto {
+    display: flex;
+    flex-direction: column;
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.observacao-cotacao {
+    background-color: var(--cor-fundo-claro);
+    padding: 2rem;
+    border-radius: 0.7rem;
+    margin-top: 3rem;
+}
+
+.subtitulo-secao-sobre {
+    font-size: 1.25rem;
+    color: var(--cor-primaria);
+
+}
+
+/* =-=-=-=-=
+SEÇÃO SERVIÇOS
+=-=-=-=-= */
+
+
+/* ================================
+MEDIA QUERIES (Tablet e Desktop)
+================================= */
+
+/* Tablet (a partir de 768px) */
+@media (min-width: 768px) {
+    .hero-texto h1 { font-size: 2.8rem; }
+    
+}
+
+/* Desktop (a partir de 1024px) */
+@media (min-width: 1024px) {
+    
+    /* Cabeçalho Desktop */
+    .cabecalho-flex {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+
+    .menu-lista {
+        gap: 30px;
+    }
+
+    /* Hero Desktop */
+    .secao-hero {
+        padding: 80px 0;
+    }
+
+    .hero-grid {
+        flex-direction: row; /* Texto esquerda, Imagem direita */
+        align-items: center;
+        text-align: left;
+        gap: 60px;
+    }
+
+    .hero-btns {
+        justify-content: flex-start;
+    }
+}
+/*versão GEMINI / Agora Vercel*/

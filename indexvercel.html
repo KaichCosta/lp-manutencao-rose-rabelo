@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rose Rabelo Seguros - Corretora de seguros com mais de 19 anos de experiência. Proteção personalizada para você e sua família.">
+    <title>Rose Rabelo Seguros - Sua vida muito mais tranquila e segura</title>
+    <style>
+        /* Reset e Configurações Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Cores principais */
+            --cor-primaria: #c62828;
+            --cor-primaria-escura: #8e0000;
+            --cor-primaria-clara: #ff5f52;
+            --cor-secundaria: #1565c0;
+            --cor-secundaria-escura: #003c8f;
+            
+            /* Cores neutras */
+            --cor-branco: #ffffff;
+            --cor-cinza-claro: #f5f5f5;
+            --cor-cinza-medio: #e0e0e0;
+            --cor-cinza: #757575;
+            --cor-cinza-escuro: #424242;
+            --cor-preto: #212121;
+            
+            /* Sombras */
+            --sombra-leve: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --sombra-media: 0 4px 8px rgba(0, 0, 0, 0.12);
+            --sombra-forte: 0 8px 16px rgba(0, 0, 0, 0.15);
+            --sombra-hover: 0 12px 24px rgba(0, 0, 0, 0.18);
+            
+            /* Espaçamentos */
+            --espacamento-xs: 0.5rem;
+            --espacamento-sm: 1rem;
+            --espacamento-md: 1.5rem;
+            --espacamento-lg: 2rem;
+            --espacamento-xl: 3rem;
+            --espacamento-xxl: 4rem;
+            
+            /* Tipografia */
+            --fonte-principal: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --fonte-tamanho-base: 16px;
+            --fonte-peso-normal: 400;
+            --fonte-peso-medio: 500;
+            --fonte-peso-negrito: 700;
+            
+            /* Bordas */
+            --borda-raio: 8px;
+            --borda-raio-grande: 16px;
+            
+            /* Transições */
+            --transicao-rapida: 0.2s ease;
+            --transicao-media: 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: var(--fonte-tamanho-base);
+        }
+
+        body {
+            font-family: var(--fonte-principal);
+            line-height: 1.6;
+            color: var(--cor-preto);
+            background-color: var(--cor-branco);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--transicao-media);
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--espacamento-sm);
+        }
+
+        /* Cabeçalho */
+        .cabecalho {
+            background-color: var(--cor-branco);
+            box-shadow: var(--sombra-leve);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navegacao-principal .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--espacamento-sm);
+            flex-wrap: wrap;
+            gap: var(--espacamento-sm);
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            font-weight: var(--fonte-peso-negrito);
+        }
+
+        .logo-texto {
+            font-size: 1.5rem;
+            color: var(--cor-primaria);
+            line-height: 1.2;
+        }
+
+        .logo-subtexto {
+            font-size: 0.875rem;
+            color: var(--cor-cinza);
+            font-weight: var(--fonte-peso-medio);
+        }
+
+        .menu-contatos {
+            display: flex;
+            gap: var(--espacamento-md);
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .contato-telefone,
+        .contato-instagram {
+            display: flex;
+            align-items: center;
+            gap: var(--espacamento-xs);
+            padding: var(--espacamento-xs) var(--espacamento-sm);
+            border-radius: var(--borda-raio);
+            font-size: 0.875rem;
+            font-weight: var(--fonte-peso-medio);
+            transition: all var(--transicao-media);
+        }
+
+        .contato-telefone {
+            background-color: var(--cor-primaria);
+            color: var(--cor-branco);
+        }
+
+        .contato-telefone:hover {
+            background-color: var(--cor-primaria-escura);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-media);
+        }
+
+        .contato-instagram {
+            background-color: var(--cor-cinza-claro);
+            color: var(--cor-cinza-escuro);
+        }
+
+        .contato-instagram:hover {
+            background-color: var(--cor-cinza-medio);
+            transform: translateY(-2px);
+        }
+
+        /* Seção Hero */
+        .secao-hero {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .hero-imagem {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-imagem::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(198, 40, 40, 0.9) 0%, rgba(198, 40, 40, 0.7) 100%);
+        }
+
+        .hero-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-conteudo {
+            position: relative;
+            z-index: 1;
+            padding: var(--espacamento-xxl) 0;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .titulo-principal {
+            font-size: 2rem;
+            font-weight: var(--fonte-peso-negrito);
+            color: var(--cor-branco);
+            line-height: 1.2;
+            margin-bottom: var(--espacamento-md);
+        }
+
+        .titulo-destaque {
+            display: block;
+            font-size: 2.5rem;
+            color: var(--cor-branco);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitulo-hero {
+            font-size: 1.125rem;
+            color: var(--cor-branco);
+            margin-bottom: var(--espacamento-lg);
+            opacity: 0.95;
+        }
+
+        /* Botões */
+        .botao-primario,
+        .botao-secundario,
+        .botao-produto {
+            display: inline-block;
+            padding: var(--espacamento-sm) var(--espacamento-lg);
+            border-radius: var(--borda-raio);
+            font-weight: var(--fonte-peso-medio);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transicao-media);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .botao-primario {
+            background-color: var(--cor-branco);
+            color: var(--cor-primaria);
+            box-shadow: var(--sombra-media);
+        }
+
+        .botao-primario:hover {
+            background-color: var(--cor-cinza-claro);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .botao-primario.grande {
+            padding: var(--espacamento-md) var(--espacamento-xl);
+            font-size: 1.125rem;
+        }
+
+        .botao-secundario {
+            background-color: transparent;
+            color: var(--cor-primaria);
+            border: 2px solid var(--cor-primaria);
+        }
+
+        .botao-secundario:hover {
+            background-color: var(--cor-primaria);
+            color: var(--cor-branco);
+            transform: translateY(-2px);
+        }
+
+        .botao-produto {
+            background-color: var(--cor-primaria);
+            color: var(--cor-branco);
+            width: 100%;
+        }
+
+        .botao-produto:hover {
+            background-color: var(--cor-primaria-escura);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-media);
+        }
+
+        /* Títulos de Seção */
+        .titulo-secao {
+            font-size: 1.75rem;
+            font-weight: var(--fonte-peso-negrito);
+            color: var(--cor-preto);
+            margin-bottom: var(--espacamento-lg);
+            line-height: 1.3;
+        }
+
+        .titulo-secao.centralizado {
+            text-align: center;
+        }
+
+        .subtitulo-secao {
+            font-size: 1.25rem;
+            font-weight: var(--fonte-peso-medio);
+            color: var(--cor-primaria);
+            margin-bottom: var(--espacamento-md);
+        }
+
+        /* Seção Sobre */
+        .secao-sobre {
+            padding: var(--espacamento-xxl) 0;
+            background-color: var(--cor-cinza-claro);
+        }
+
+        .sobre-texto {
+            display: flex;
+            flex-direction: column;
+            gap: var(--espacamento-md);
+            font-size: 1.0625rem;
+            color: var(--cor-cinza-escuro);
+        }
+
+        .processo-cotacao {
+            margin-top: var(--espacamento-xl);
+            padding: var(--espacamento-lg);
+            background-color: var(--cor-branco);
+            border-radius: var(--borda-raio-grande);
+            box-shadow: var(--sombra-leve);
+        }
+
+        .processo-descricao {
+            color: var(--cor-cinza-escuro);
+            font-size: 1rem;
+        }
+
+        /* Seção de Produtos */
+        .secao-produtos {
+            padding: var(--espacamento-xxl) 0;
+        }
+
+        .grade-produtos {
+            display: grid;
+            gap: var(--espacamento-lg);
+            margin-bottom: var(--espacamento-xl);
+        }
+
+        .cartao-produto {
+            background-color: var(--cor-branco);
+            border-radius: var(--borda-raio-grande);
+            overflow: hidden;
+            box-shadow: var(--sombra-leve);
+            transition: all var(--transicao-media);
+        }
+
+        .cartao-produto:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .produto-imagem {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .produto-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transicao-media);
+        }
+
+        .cartao-produto:hover .produto-imagem img {
+            transform: scale(1.05);
+        }
+
+        .produto-conteudo {
+            padding: var(--espacamento-md);
+        }
+
+        .produto-titulo {
+            font-size: 1.25rem;
+            font-weight: var(--fonte-peso-negrito);
+            color: var(--cor-preto);
+            margin-bottom: var(--espacamento-sm);
+        }
+
+        .chamada-acao-produtos {
+            text-align: center;
+            padding: var(--espacamento-lg);
+            background-color: var(--cor-cinza-claro);
+            border-radius: var(--borda-raio-grande);
+        }
+
+        .chamada-acao-produtos p {
+            font-size: 1.125rem;
+            color: var(--cor-cinza-escuro);
+            margin-bottom: var(--espacamento-md);
+        }
+
+        /* Seção Vantagens */
+        .secao-vantagens {
+            padding: var(--espacamento-xxl) 0;
+            background-color: var(--cor-cinza-claro);
+        }
+
+        .vantagens-introducao {
+            margin-bottom: var(--espacamento-xl);
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .vantagens-introducao p {
+            font-size: 1.0625rem;
+            color: var(--cor-cinza-escuro);
+            margin-bottom: var(--espacamento-md);
+        }
+
+        .grade-vantagens {
+            display: grid;
+            gap: var(--espacamento-lg);
+            margin-bottom: var(--espacamento-xl);
+        }
+
+        .cartao-vantagem {
+            background-color: var(--cor-branco);
+            border-radius: var(--borda-raio-grande);
+            overflow: hidden;
+            box-shadow: var(--sombra-leve);
+            transition: all var(--transicao-media);
+        }
+
+        .cartao-vantagem:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .vantagem-imagem {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .vantagem-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vantagem-conteudo {
+            padding: var(--espacamento-lg);
+        }
+
+        .vantagem-titulo {
+            font-size: 1.25rem;
+            font-weight: var(--fonte-peso-negrito);
+            color: var(--cor-primaria);
+            margin-bottom: var(--espacamento-sm);
+        }
+
+        .vantagem-descricao {
+            color: var(--cor-cinza-escuro);
+            font-size: 1rem;
+        }
+
+        .chamada-acao-vantagens {
+            text-align: center;
+        }
+
+        /* Seção de Contato */
+        .secao-contato {
+            padding: var(--espacamento-xxl) 0;
+        }
+
+        .informacoes-contato {
+            display: grid;
+            gap: var(--espacamento-lg);
+            margin-bottom: var(--espacamento-xl);
+        }
+
+        .cartao-contato {
+            background-color: var(--cor-cinza-claro);
+            padding: var(--espacamento-lg);
+            border-radius: var(--borda-raio-grande);
+            text-align: center;
+            transition: all var(--transicao-media);
+        }
+
+        .cartao-contato:hover {
+            background-color: var(--cor-cinza-medio);
+            transform: translateY(-2px);
+        }
+
+        .icone-contato {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: var(--espacamento-sm);
+        }
+
+        .contato-subtitulo {
+            font-size: 1.125rem;
+            font-weight: var(--fonte-peso-negrito);
+            color: var(--cor-preto);
+            margin-bottom: var(--espacamento-xs);
+        }
+
+        .link-contato {
+            display: block;
+            color: var(--cor-cinza);
+            font-size: 0.9375rem;
+            margin-top: var(--espacamento-xs);
+        }
+
+        .link-contato:hover {
+            color: var(--cor-primaria);
+        }
+
+        .chamada-acao-final {
+            text-align: center;
+        }
+
+        /* Rodapé */
+        .rodape {
+            background-color: var(--cor-preto);
+            color: var(--cor-branco);
+            padding: var(--espacamento-xl) 0 var(--espacamento-lg);
+        }
+
+        .rodape-conteudo {
+            text-align: center;
+            margin-bottom: var(--espacamento-md);
+        }
+
+        .rodape .logo-texto {
+            font-size: 1.5rem;
+            color: var(--cor-branco);
+        }
+
+        .rodape .logo-subtexto {
+            color: var(--cor-cinza-medio);
+        }
+
+        .rodape-texto {
+            margin-top: var(--espacamento-sm);
+            color: var(--cor-cinza-medio);
+            font-size: 0.9375rem;
+        }
+
+        .rodape-direitos {
+            text-align: center;
+            padding-top: var(--espacamento-md);
+            border-top: 1px solid var(--cor-cinza-escuro);
+        }
+
+        .rodape-direitos p {
+            font-size: 0.875rem;
+            color: var(--cor-cinza);
+        }
+
+        /* Responsividade - Tablet */
+        @media (min-width: 768px) {
+            .titulo-principal {
+                font-size: 2.5rem;
+            }
+            
+            .titulo-destaque {
+                font-size: 3rem;
+            }
+            
+            .grade-produtos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .grade-vantagens {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .informacoes-contato {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Responsividade - Desktop */
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 var(--espacamento-lg);
+            }
+            
+            .secao-hero {
+                min-height: 600px;
+            }
+            
+            .titulo-principal {
+                font-size: 3rem;
+            }
+            
+            .titulo-destaque {
+                font-size: 3.5rem;
+            }
+            
+            .grade-produtos {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .grade-vantagens {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .informacoes-contato {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .produto-imagem {
+                height: 250px;
+            }
+            
+            .vantagem-imagem {
+                height: 240px;
+            }
+        }
+
+        /* Responsividade - Desktop Grande */
+        @media (min-width: 1440px) {
+            .grade-produtos {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Acessibilidade */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* Foco visível para navegação por teclado */
+        a:focus,
+        button:focus {
+            outline: 3px solid var(--cor-secundaria);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+        <nav class="navegacao-principal">
+            <div class="container">
+                <a href="#inicio" class="logo">
+                    <span class="logo-texto">Rose Rabelo</span>
+                    <span class="logo-subtexto">Seguros</span>
+                </a>
+                <div class="menu-contatos">
+                    <a href="tel:3733332222" class="contato-telefone">
+                        <span class="icone-telefone">📞</span>
+                        (37) 3333-2222
+                    </a>
+                    <a href="https://www.instagram.com/roserabeloseguros/" class="contato-instagram" target="_blank" rel="noopener">
+                        <span class="icone-instagram">📷</span>
+                        @roserabeloseguros
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Seção Hero -->
+    <section id="inicio" class="secao-hero">
+        <div class="hero-conteudo">
+            <div class="container">
+                <h1 class="titulo-principal">
+                    <span class="titulo-destaque">Sua vida</span>
+                    muito mais tranquila e segura!
+                </h1>
+                <p class="subtitulo-hero">Protegendo o que é mais importante para você há mais de 19 anos</p>
+                <a href="#contato" class="botao-primario">Solicitar cotação gratuita</a>
+            </div>
+        </div>
+        <div class="hero-imagem">
+            <img src="/placeholder.svg?height=600&width=1200" alt="Família feliz e segura" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section id="sobre" class="secao-sobre">
+        <div class="container">
+            <div class="sobre-conteudo">
+                <h2 class="titulo-secao">Protegendo o que é mais importante para você</h2>
+                <div class="sobre-texto">
+                    <p>Rose Rabelo Seguros é uma corretora de seguros onde você encontra proteção personalizada para tudo aquilo que é mais importante para você! Disponibilizamos os melhores produtos e soluções financeiras, ofertados pelas melhores seguradoras presentes no mercado brasileiro e mundial.</p>
+                    <p>Há mais de 19 anos, oferecemos tudo isso de uma forma descomplicada, especializada e rápida, tornando a sua vida muito mais tranquila e segura.</p>
+                </div>
+            </div>
+            
+            <div class="processo-cotacao">
+                <h3 class="subtitulo-secao">Como funciona?</h3>
+                <p class="processo-descricao">É muito fácil realizar o orçamento do seu seguro conosco. Basta clicar em algum dos atalhos disponíveis nos produtos abaixo. Em muito pouco tempo, você terá uma cotação personalizada que atenderá todas as suas necessidades!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Produtos/Seguros -->
+    <section id="produtos" class="secao-produtos">
+        <div class="container">
+            <h2 class="titulo-secao centralizado">Encontre aqui o seguro que é feito para você</h2>
+            
+            <div class="grade-produtos">
+                <!-- Automóveis -->
+                <article class="cartao-produto">
+                    <div class="produto-imagem">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Seguro de automóveis" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3 class="produto-titulo">Automóveis</h3>
+                        <a href="#contato" class="botao-produto">Solicitar cotação</a>
+                    </div>
+                </article>
+
+                <!-- Caminhões e Cargas -->
+                <article class="cartao-produto">
+                    <div class="produto-imagem">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Seguro para caminhões e cargas" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3 class="produto-titulo">Caminhões e Cargas</h3>
+                        <a href="#contato" class="botao-produto">Solicitar cotação</a>
+                    </div>
+                </article>
+
+                <!-- Motocicletas -->
+                <article class="cartao-produto">
+                    <div class="produto-imagem">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Seguro para motocicletas" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3 class="produto-titulo">Motocicletas</h3>
+                        <a href="#contato" class="botao-produto">Solicitar cotação</a>
+                    </div>
+                </article>
+
+                <!-- Bicicletas -->
+                <article class="cartao-produto">
+                    <div class="produto-imagem">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Seguro para bicicletas" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3 class="produto-titulo">Bicicletas</h3>
+                        <a href="#contato" class="botao-produto">Solicitar cotação</a>
+                    </div>
+                </article>
+
+                <!-- Seguro de Vida -->
+                <article class="cartao-produto">
+                    <div class="produto-imagem">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Seguro de vida" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3 class="produto-titulo">Seguro para Vidas</h3>
+                        <a href="#contato" class="botao-produto">Solicitar cotação</a>
+                    </div>
+                </article>
+
+                <!-- Residenciais -->
+                <article class="cartao-produto">
+                    <div class="produto-imagem">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Seguro residencial" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3 class="produto-titulo">Residenciais</h3>
+                        <a href="#contato" class="botao-produto">Solicitar cotação</a>
+                    </div>
+                </article>
+
+                <!-- Empresariais -->
+                <article class="cartao-produto">
+                    <div class="produto-imagem">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Seguro empresarial" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3 class="produto-titulo">Empresariais</h3>
+                        <a href="#contato" class="botao-produto">Solicitar cotação</a>
+                    </div>
+                </article>
+
+                <!-- Responsabilidade Civil -->
+                <article class="cartao-produto">
+                    <div class="produto-imagem">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Responsabilidade civil" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3 class="produto-titulo">Responsabilidade Civil</h3>
+                        <a href="#contato" class="botao-produto">Solicitar cotação</a>
+                    </div>
+                </article>
+
+                <!-- Seguro Viagem -->
+                <article class="cartao-produto">
+                    <div class="produto-imagem">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Seguro viagem" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3 class="produto-titulo">Seguro Viagem</h3>
+                        <a href="#contato" class="botao-produto">Solicitar cotação</a>
+                    </div>
+                </article>
+
+                <!-- Acidentes Pessoais -->
+                <article class="cartao-produto">
+                    <div class="produto-imagem">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Acidentes pessoais" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3 class="produto-titulo">Acidentes Pessoais</h3>
+                        <a href="#contato" class="botao-produto">Solicitar cotação</a>
+                    </div>
+                </article>
+
+                <!-- Eletrônicos Portáteis -->
+                <article class="cartao-produto">
+                    <div class="produto-imagem">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Eletrônicos portáteis" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3 class="produto-titulo">Eletrônicos Portáteis</h3>
+                        <a href="#contato" class="botao-produto">Solicitar cotação</a>
+                    </div>
+                </article>
+
+                <!-- Consórcios -->
+                <article class="cartao-produto">
+                    <div class="produto-imagem">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Consórcios" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3 class="produto-titulo">Consórcios</h3>
+                        <a href="#contato" class="botao-produto">Solicitar cotação</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="chamada-acao-produtos">
+                <p>Não encontrou o seguro que estava procurando?</p>
+                <a href="#contato" class="botao-secundario">Clique aqui para saber mais</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Vantagens -->
+    <section id="vantagens" class="secao-vantagens">
+        <div class="container">
+            <h2 class="titulo-secao centralizado">Quais são as vantagens de ser cliente RR?</h2>
+            
+            <div class="vantagens-introducao">
+                <p>Oferecemos infinitas opções de produtos personalizados, que garantem a sua proteção e segurança, além de cuidar da sua família, sua carreira profissional, empresas, investimentos, seus bens... enfim, um cuidado de especialistas para tudo o que tem importância na sua vida!</p>
+                <p>Além disso, oferecemos um suporte humanizado em todos os processos, acompanhando os seus momentos mais felizes e te auxiliando nos momentos mais difíceis, cuidando de toda burocracia e resolvendo os seus problemas com agilidade.</p>
+            </div>
+
+            <div class="grade-vantagens">
+                <article class="cartao-vantagem">
+                    <div class="vantagem-imagem">
+                        <img src="/placeholder.svg?height=300&width=400" alt="Atendimento especializado" loading="lazy">
+                    </div>
+                    <div class="vantagem-conteudo">
+                        <h3 class="vantagem-titulo">Atendimento Especializado</h3>
+                        <p class="vantagem-descricao">Equipe qualificada pronta para entender suas necessidades e oferecer as melhores soluções.</p>
+                    </div>
+                </article>
+
+                <article class="cartao-vantagem">
+                    <div class="vantagem-imagem">
+                        <img src="/placeholder.svg?height=300&width=400" alt="Assistência 24 horas" loading="lazy">
+                    </div>
+                    <div class="vantagem-conteudo">
+                        <h3 class="vantagem-titulo">Assistência 24hrs</h3>
+                        <p class="vantagem-descricao">Suporte disponível a qualquer momento, todos os dias da semana.</p>
+                    </div>
+                </article>
+
+                <article class="cartao-vantagem">
+                    <div class="vantagem-imagem">
+                        <img src="/placeholder.svg?height=300&width=400" alt="Acompanhamento de sinistros" loading="lazy">
+                    </div>
+                    <div class="vantagem-conteudo">
+                        <h3 class="vantagem-titulo">Acompanhamento de Sinistros</h3>
+                        <p class="vantagem-descricao">Cuidamos de toda a burocracia e agilizamos o processo de resolução.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="chamada-acao-vantagens">
+                <a href="#contato" class="botao-primario">Tenha um cuidado especializado em tudo que é importante para você</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section id="contato" class="secao-contato">
+        <div class="container">
+            <h2 class="titulo-secao centralizado">Faça uma simulação e descubra o melhor seguro para você</h2>
+            
+            <div class="informacoes-contato">
+                <div class="cartao-contato">
+                    <span class="icone-contato">📞</span>
+                    <h3 class="contato-subtitulo">Telefones</h3>
+                    <a href="tel:3733332222" class="link-contato">(37) 3333-2222</a>
+                    <a href="tel:3733332350" class="link-contato">(37) 3333-2350</a>
+                </div>
+
+                <div class="cartao-contato">
+                    <span class="icone-contato">✉️</span>
+                    <h3 class="contato-subtitulo">E-mail</h3>
+                    <a href="mailto:comercial@roseseguros.com.br" class="link-contato">comercial@roseseguros.com.br</a>
+                </div>
+
+                <div class="cartao-contato">
+                    <span class="icone-contato">📷</span>
+                    <h3 class="contato-subtitulo">Instagram</h3>
+                    <a href="https://www.instagram.com/roserabeloseguros/" class="link-contato" target="_blank" rel="noopener">@roserabeloseguros</a>
+                </div>
+
+                <div class="cartao-contato">
+                    <span class="icone-contato">📍</span>
+                    <h3 class="contato-subtitulo">Endereço</h3>
+                    <a href="https://www.google.com/maps/place/ROSE+RABELO+SEGUROS/@-20.539622,-44.6344585,18z" class="link-contato" target="_blank" rel="noopener">Av. Américo Paolinelli, 80<br>Centro, Carmópolis MG<br>CEP: 35.534-000</a>
+                </div>
+
+                <div class="cartao-contato">
+                    <span class="icone-contato">🕐</span>
+                    <h3 class="contato-subtitulo">Horário</h3>
+                    <p class="link-contato">08h30 às 18h</p>
+                </div>
+            </div>
+
+            <div class="chamada-acao-final">
+                <a href="tel:3733332222" class="botao-primario grande">Fazer orçamento agora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container">
+            <div class="rodape-conteudo">
+                <div class="rodape-logo">
+                    <span class="logo-texto">Rose Rabelo</span>
+                    <span class="logo-subtexto">Seguros</span>
+                </div>
+                <p class="rodape-texto">Protegendo o que é mais importante para você há mais de 19 anos.</p>
+            </div>
+            <div class="rodape-direitos">
+                <p>&copy; 2025 Rose Rabelo Seguros. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+</body>
+</html>
