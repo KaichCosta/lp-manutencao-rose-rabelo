@@ -6,7 +6,7 @@
     --cor-h2: #111;
     --cor-fundo-claro: #fafafa;
     --cor-fundo-cinza: #eaeaea;
-    --cor-rodape: #222222;
+    --cor-rodape: #151515;
 
 }
 
@@ -30,14 +30,13 @@ body {
     background-color: var(--cor-fundo-claro);
 }
 
-/* Container padrão para centralizar o conteúdo */
+
 .container {
     width: 90%;
-    max-width: 1200px; /* Largura máxima no desktop */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Estilos de Imagem Responsiva */
 img {
     max-width: 100%;
     height: auto;
@@ -55,11 +54,14 @@ a {
     transition: color 0.3s ease;
 }
 
-/* CABEÇALHO */
+/*=-=-=-=
+CABEÇALHO 
+-=-=-=-=- */
+
 #cabecalho-principal {
     background-color: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky; /* Fixa o menu no topo ao rolar */
+    position: sticky;
     top: 0;
     z-index: 100;
     padding: 15px 0;
@@ -67,7 +69,7 @@ a {
 
 .cabecalho-flex {
     display: flex;
-    flex-direction: column; /* Em mobile, logo em cima do menu */
+    flex-direction: column;
     align-items: center;
     gap: 15px;
 }
@@ -76,7 +78,6 @@ a {
     max-height: 90px;
 }
 
-/* Menu simplificado para mobile CSS puro */
 .menu-lista {
     list-style: none;
     display: flex;
@@ -97,7 +98,7 @@ a {
 }
 
 .btn-menu-item {
-    display: none; /* Esconde o botão "Cotar" no menu mobile padrão */
+    display: none;
 }
 
 /* =-=-=-=-=-=
@@ -110,7 +111,7 @@ HERO SECTION
 
 .hero-grid {
     display: flex;
-    flex-direction: column-reverse; /* Texto abaixo da imagem no mobile */
+    flex-direction: column-reverse;
     gap: 30px;
     text-align: center;
 }
@@ -136,7 +137,7 @@ HERO SECTION
 
 .hero-imagem img {
     border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
 }
 
 /*versão Gemini / inicio vercel*/
@@ -375,11 +376,82 @@ SEÇÃO VANTAGENS
         text-align: center;
     }
 
-/* ================================
-MEDIA QUERIES (Tablet e Desktop)
-================================= */
 
-/* Tablet (a partir de 768px) */
+/* =-=-=-=-=-=-=-=-=
+SEÇÃO RODAPÉ CONTATO
+=-=-=-=-=-=-=-=-=-=- */
+/*acabou versao v0 / versao Gemini*/
+
+#contato {
+    background-color: var(--cor-rodape);
+    color: var(--cor-fundo-claro);
+    padding: 60px 0 20px;
+}
+
+.rodape-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.rodape-coluna h3 {
+    color: white;
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    position: relative;
+}
+
+.rodape-coluna h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 3px;
+    background-color: var(--cor-primaria);
+}
+
+.lista-contato {
+    list-style: none;
+}
+
+.lista-contato li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.lista-contato li i {
+    color: var(--cor-primaria);
+    margin-top: 4px;
+}
+
+.redes-sociais {
+    margin-top: 25px;
+}
+
+.redes-sociais a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+.mapa-container iframe {
+    border-radius: 12px;
+    filter: grayscale(20%);
+}
+
+.rodape-copy {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 0.9rem;
+}
+
 @media (min-width: 768px) {
     .hero-texto h1 { font-size: 2.8rem; }
 
@@ -390,10 +462,9 @@ MEDIA QUERIES (Tablet e Desktop)
 
 }
 
-/* Desktop (a partir de 1024px) */
 @media (min-width: 1024px) {
     
-    /* Cabeçalho Desktop */
+
     .cabecalho-flex {
         flex-direction: row;
         justify-content: space-between;
@@ -404,23 +475,42 @@ MEDIA QUERIES (Tablet e Desktop)
         gap: 30px;
     }
 
-    /* Hero Desktop */
     .secao-hero {
         padding: 80px 0;
     }
 
     .hero-grid {
-        flex-direction: row; /* Texto esquerda, Imagem direita */
+        flex-direction: row;
         align-items: center;
         text-align: left;
         gap: 60px;
     }
 
-    .hero-btns {
-        justify-content: flex-start;
+    .grade-servicos {
+        grid-template-columns: repeat(4, 1fr);
     }
+
+    .sobre-grid {
+        flex-direction: row;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .sobre-imagem, .sobre-texto {
+        flex: 1;
+    }
+
 /*versão GEMINI / Agora Vercel*/
     .grade-produtos, .grade-vantagens {
         grid-template-columns: repeat(3, 1fr);
     }
+/*acabou versao v0 / versao Gemini*/
+    .rodape-grid {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .rodape-coluna {
+        flex: 1;
+    }    
 }
