@@ -1,7 +1,7 @@
 :root {
 
     --cor-primaria: #fc0000; /* Vermelho da logo */
-    --cor-primaria-escura: #e20000;
+    --cor-primaria-escura: #ce0000;
     --cor-texto: #222; /* Cinza escuro para leitura */
     --cor-h2: #111;
     --cor-fundo-claro: #fafafa;
@@ -149,7 +149,7 @@ SEÇÃO SOBRE
     background-color: var(--cor-fundo-cinza);
 }
 
-.titulo-secao-sobre {
+h2 {
     font-size: 1.6rem;
     color: var(--cor-h2);
     margin-bottom: 2.2rem;
@@ -167,7 +167,7 @@ SEÇÃO SOBRE
 .observacao-cotacao {
     background-color: var(--cor-fundo-claro);
     padding: 2rem;
-    border-radius: 0.7rem;
+    border-radius: 16px;
     margin-top: 3rem;
 }
 
@@ -180,7 +180,200 @@ SEÇÃO SOBRE
 /* =-=-=-=-=
 SEÇÃO SERVIÇOS
 =-=-=-=-= */
+.secao-produtos {
+    padding: 4rem 0;
+}
 
+.grade-produtos {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.cartao-produto {
+    background-color: var(--cor-fundo-claro);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.cartao-produto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.produto-imagem {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.produto-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.cartao-produto:hover .produto-imagem img {
+    transform: scale(1.05);
+}
+
+.produto-conteudo {
+    padding: 1.5rem;
+}
+
+.produto-titulo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 1rem;
+}
+
+.chamada-acao-produtos {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--cor-fundo-cinza);
+    border-radius: 16px;
+}
+
+.chamada-acao-produtos p {
+    color: var(--cor-texto);
+    margin-bottom: 1.5rem;
+}
+
+.botao-primario, .botao-produto, .botao-secundario {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 1rem;
+}
+
+.botao-primario {
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-primaria);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.botao-primario:hover {
+    background-color: var(--cor-fundo-cinza);
+    color: var(--cor-primaria-escura);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.botao-primario:active {
+    background-color: var(--cor-fundo-claro);
+}
+
+.botao-secundario {
+    background-color: transparent;
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+}
+
+.botao-secundario:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    transform: translateY(-2px);
+}
+
+.botao-secundario:active {
+    background-color: rgb(255, 36, 36);
+    color: #fff;
+}
+
+.botao-produto {
+    background-color: var(--cor-primaria);
+    color: #fff;
+    width: 100%;
+}
+
+.botao-produto:hover {
+    background-color: var(--cor-primaria-escura);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+    
+.botao-produto:active {
+    background-color: rgb(255, 36, 36);
+}
+
+/* =-=-=-=-=-=-
+SEÇÃO VANTAGENS
+=-=-=-=-=-=-=-= */
+    .secao-vantagens {
+        padding: 4rem 0;
+        background-color: var(--cor-fundo-cinza);
+    }
+
+    .vantagens-introducao {
+        margin-bottom: 3rem;
+        text-align: center;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .vantagens-introducao p {
+        margin-bottom: 1.5rem;
+    }
+
+    .grade-vantagens {
+        display: grid;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .cartao-vantagem {
+        background-color: var(--cor-fundo-claro);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;;
+    }
+
+    .cartao-vantagem:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .vantagem-imagem {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .vantagem-imagem img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .vantagem-conteudo {
+        padding: 2rem;
+    }
+
+    .vantagem-titulo {
+        font-weight: 700;
+        color: var(--cor-primaria);
+        margin-bottom: 1rem;
+    }
+
+    .vantagem-descricao {
+        font-size: 1rem;
+    }
+
+    .chamada-acao-vantagens {
+        text-align: center;
+    }
 
 /* ================================
 MEDIA QUERIES (Tablet e Desktop)
@@ -189,7 +382,12 @@ MEDIA QUERIES (Tablet e Desktop)
 /* Tablet (a partir de 768px) */
 @media (min-width: 768px) {
     .hero-texto h1 { font-size: 2.8rem; }
-    
+
+/*versão GEMINI / Agora Vercel*/
+    .grade-produtos, .grade-vantagens {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
 
 /* Desktop (a partir de 1024px) */
@@ -221,5 +419,8 @@ MEDIA QUERIES (Tablet e Desktop)
     .hero-btns {
         justify-content: flex-start;
     }
-}
 /*versão GEMINI / Agora Vercel*/
+    .grade-produtos, .grade-vantagens {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
