@@ -121,6 +121,7 @@ HERO SECTION
     color: var(--cor-primaria);
     line-height: 1.2;
     margin-bottom: 20px;
+    flex: 1;
 }
 
 .hero-texto p {
@@ -129,15 +130,18 @@ HERO SECTION
     color: #555;
 }
 
-.hero-btns {
+.hero-imagem {
+    flex: 1; /* Garante que ela ocupe o mesmo espaço do texto */
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    justify-content: center; /* Centraliza a imagem se ela for menor */
+    align-items: center;
 }
 
 .hero-imagem img {
-    border-radius: 12px;
-
+    width: 100%;   /* Faz a imagem esticar para preencher o container */
+    height: auto;  /* Mantém a proporção da imagem */
+    display: block; /* Remove espaços extras abaixo da imagem */
+    border-radius: 12px; /* Opcional: mantém as bordas arredondadas */
 }
 
 /*versão Gemini / inicio vercel*/
@@ -484,6 +488,14 @@ SEÇÃO RODAPÉ CONTATO
         align-items: center;
         text-align: left;
         gap: 60px;
+    }
+
+    .hero-texto {
+        flex: 0.6;
+    }
+
+    .hero-imagem {
+        flex: 1.4;
     }
 
     .grade-servicos {
